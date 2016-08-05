@@ -2,7 +2,14 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+// MOBX
+import { observable } from "mobx";
+import { observer } from "mobx-react";
+
+@observer
 class App extends Component {
+  @observable number = 0;
+
   render() {
     return (
       <div className="App">
@@ -13,6 +20,13 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <p>
+          {this.number}
+        </p>
+        <p>
+          <button onClick={() => --this.number}>-</button>
+          <button onClick={() => ++this.number}>+</button>
+          </p>
       </div>
     );
   }
